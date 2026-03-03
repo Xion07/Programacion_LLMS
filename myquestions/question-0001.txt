@@ -1,0 +1,10 @@
+El Problema:
+Trabajas en Recursos Humanos y recibes un DataFrame con el reporte mensual de los empleados. Contiene las columnas 'empleado_id', 'departamento', 'horas_trabajadas' y 'proyectos_completados'. Algunos registros tienen el departamento vacío y a otros les faltan las horas. Necesitas limpiar esto y calcular la eficiencia por departamento.
+
+Tu Misión:
+Escribe una función llamada analisis_rendimiento_empleados(df) que realice lo siguiente:
+- Elimine las filas donde la columna 'departamento' tenga valores nulos (NaN).
+- Rellene los valores nulos de la columna 'horas_trabajadas' con la mediana de dicha columna.
+- Cree una nueva columna llamada 'eficiencia', calculada como la división entre 'proyectos_completados' y 'horas_trabajadas'.
+- Agrupe los datos por 'departamento' y calcule el promedio de la 'eficiencia'.
+- Devuelva un DataFrame con el departamento como índice y la columna de eficiencia promedio, ordenado de mayor a menor eficiencia.

@@ -1,0 +1,9 @@
+El Problema:
+Quieres predecir el precio de venta de vehículos usados. Estás dudando entre usar un Árbol de Decisión superficial (poco profundo) o uno profundo. Necesitas compararlos usando validación cruzada para elegir el que tenga el menor error.
+
+Tu Misión:
+Escribe una función llamada comparar_arboles_regresion(X, y, cv_folds) que:
+- Instancie dos modelos DecisionTreeRegressor (de sklearn.tree): uno con max_depth=3 (llamémoslo "Superficial") y otro con max_depth=10 (llamémoslo "Profundo").
+- Evalúe ambos modelos usando cross_val_score de sklearn, con el número de folds indicado en cv_folds y utilizando la métrica scoring='neg_mean_squared_error'.
+- Convierta los resultados negativos a MSE positivo, calcule su raíz cuadrada (np.sqrt) y obtenga el RMSE promedio para cada modelo.
+- Devuelva un diccionario con 3 claves: 'rmse_superficial' (float), 'rmse_profundo' (float), y 'mejor_modelo' (str, que debe ser "Superficial" o "Profundo", dependiendo de cuál obtuvo el MENOR RMSE promedio).

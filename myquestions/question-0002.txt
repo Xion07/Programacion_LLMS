@@ -1,0 +1,10 @@
+El Problema:
+Un banco necesita evaluar un modelo para predecir el riesgo de crédito (0 = Buen pagador, 1 = Mal pagador). Tienes los datos numéricos listos, pero debes estructurar el proceso de validación correctamente para no sesgar los resultados.
+
+Tu Misión:
+Escribe una función llamada clasificacion_riesgo_credito(X, y, test_size, random_state) que:
+- Divida los arrays X e y en conjuntos de entrenamiento y prueba usando train_test_split.
+- Instancie un StandardScaler y lo ajuste EXCLUSIVAMENTE con los datos de entrenamiento (X_train), para luego transformar tanto X_train como X_test.
+- Instancie y entrene un modelo SVC (Support Vector Classifier de sklearn.svm) con kernel='rbf' y el random_state proporcionado.
+- Realice las predicciones sobre el conjunto de prueba escalado.
+- Calcule y devuelva un diccionario con las métricas 'accuracy' y 'f1_score' (macro) evaluadas sobre el conjunto de prueba.

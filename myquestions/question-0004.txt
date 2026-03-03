@@ -1,0 +1,10 @@
+El Problema:
+Tienes una base de datos de comportamiento de usuarios de una app (tiempo de uso, clics, compras). Lamentablemente, existen algunos datos perdidos. Quieres agrupar a los usuarios en perfiles (clusters) automáticamente.
+
+Tu Misión:
+Escribe una función llamada segmentacion_comportamental(df, n_clusters, random_state) que:
+- Seleccione únicamente las columnas de tipo numérico del DataFrame original (puedes usar select_dtypes).
+- Utilice SimpleImputer para rellenar los valores faltantes (NaN) usando la estrategia de 'mean' (promedio).
+- Escale los datos imputados usando StandardScaler.
+- Instancie y entrene un modelo KMeans de sklearn.cluster usando el número de clusters y el random_state proporcionados.
+- Devuelva un array de numpy (o una lista) con las etiquetas numéricas de los clusters a los que fue asignada cada fila.
