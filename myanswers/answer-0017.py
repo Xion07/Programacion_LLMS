@@ -24,20 +24,6 @@ def desarrollar_predictor_mpg(df_autos):
     5. Escala características con StandardScaler (solo en train)
     6. Entrena modelo Ridge Regression
     7. Retorna diccionario con: scaler_type, model_type, r2_score
-
-    Parameters
-    ----------
-    df_autos : pd.DataFrame
-        DataFrame con columnas: 'horsepower', 'weight', 'origin', 'mpg'
-        La columna 'horsepower' puede contener strings '?'
-
-    Returns
-    -------
-    dict
-        Diccionario con las siguientes llaves exactas:
-        - 'scaler_type': StandardScaler entrenado
-        - 'model_type': Ridge Regression entrenado
-        - 'r2_score': Coeficiente R^2 en datos de prueba
     """
 
     # Paso 1: Limpieza y transformación
@@ -76,8 +62,12 @@ def desarrollar_predictor_mpg(df_autos):
     # Paso 7: Calcular R2 en datos de prueba
     r2_score = modelo.score(X_test_scaled, y_test)
 
-    # Retorno en formato diccionario (Nombres exactos exigidos por el validador)
-    return {"scaler_type": scaler, "model_type": modelo, "r2_score": r2_score}
+    # Retorno devolviendo el TIPO de objeto usando type()
+    return {
+        "scaler_type": type(scaler),
+        "model_type": type(modelo),
+        "r2_score": r2_score,
+    }
 
 
 if __name__ == "__main__":
@@ -126,10 +116,6 @@ if __name__ == "__main__":
     resultados = desarrollar_predictor_mpg(df_ejemplo)
 
     print("\nResultados:")
-    print(f"  Scaler type: {type(resultados['scaler_type']).__name__}")
-    print(f"  Modelo type: {type(resultados['model_type']).__name__}")
+    print(f"  Scaler type: {resultados['scaler_type']}")
+    print(f"  Modelo type: {resultados['model_type']}")
     print(f"  R2 Score: {resultados['r2_score']:.4f}")
-
-    print("\nCaracterísticas del modelo:")
-    print(f"  Coeficientes shape: {resultados['model_type'].coef_.shape}")
-    print(f"  Intercept: {resultados['model_type'].intercept_:.4f}")
